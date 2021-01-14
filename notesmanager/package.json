@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development ./notesmanager/frontend/src/index.js --output ./notesmanager/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./notesmanager/frontend/src/index.js --output ./notesmanager/frontend/static/frontend/main.js"
   },
   "keywords": [],
   "author": "",
