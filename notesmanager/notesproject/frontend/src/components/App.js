@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
+import Header from './layout/Header';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,15 +35,18 @@ class App extends Component {
 
   render() {
     return (
-      <ul>
-        {this.state.data.map(note => {
-          return (
-            <li key={note.id}>
-              {note.question} - {note.answer}
-            </li>
-          );
-        })}
-      </ul>
+      <div>
+        <Header />
+        <ul>
+          {this.state.data.map(note => {
+            return (
+              <li key={note.id}>
+                {note.question} - {note.answer}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }
