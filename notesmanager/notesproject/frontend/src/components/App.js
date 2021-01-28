@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 
-import Header from './layout/Header';
+import Header from "./layout/Header";
 
 class App extends Component {
   constructor(props) {
@@ -9,13 +9,13 @@ class App extends Component {
     this.state = {
       data: [],
       loaded: false,
-      placeholder: "Loading"
+      placeholder: "Loading",
     };
   }
 
   componentDidMount() {
     fetch("api")
-      .then(response => {
+      .then((response) => {
         if (response.status > 400) {
           return this.setState(() => {
             return { placeholder: "Something went wrong!" };
@@ -23,11 +23,11 @@ class App extends Component {
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         this.setState(() => {
           return {
             data,
-            loaded: true
+            loaded: true,
           };
         });
       });
@@ -35,10 +35,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Header />
         <ul>
-          {this.state.data.map(note => {
+          {this.state.data.map((note) => {
             return (
               <li key={note.id}>
                 {note.question} - {note.answer}
@@ -46,7 +46,7 @@ class App extends Component {
             );
           })}
         </ul>
-      </div>
+      </Fragment>
     );
   }
 }
